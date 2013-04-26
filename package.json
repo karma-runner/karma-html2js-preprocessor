@@ -1,0 +1,32 @@
+{
+  "name": "karma-html2js-preprocessor",
+  "version": "0.0.1",
+  "description": "A Karma plugin. Convert HTML files into JS strings to serve them in a script tag.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/karma-runner/karma-html2js-preprocessor.git"
+  },
+  "keywords": [
+    "karma-plugin",
+    "preprocessor",
+    "html2js",
+    "html"
+  ],
+  "author": "Vojta Jina <vojta.jina@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.0rc5",
+    "grunt-simple-mocha": "~0.3.2",
+    "grunt-contrib-jshint": "~0.1.1rc5",
+    "chai": "~1.4",
+    "mocha": "~1.8"
+  },
+  "peerDependencies": {
+    "karma": "~0.9"
+  },
+  "license": "MIT"
+}
