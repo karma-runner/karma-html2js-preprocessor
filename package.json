@@ -31,5 +31,6 @@
   "peerDependencies": {
     "karma": "~0.9"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "contributors": []
 }
