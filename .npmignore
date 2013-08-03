@@ -1,4 +1,6 @@
 .*
 test
+e2e-test
 
 Gruntfile.coffee
+CONTRIBUTING.md
