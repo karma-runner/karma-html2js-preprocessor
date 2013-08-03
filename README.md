@@ -12,8 +12,8 @@ The easiest way is to keep `karma-html2js-preprocessor` as a devDependency in yo
 ```json
 {
   "devDependencies": {
-    "karma": "~0.9",
-    "karma-html2js-preprocessor": "~0.0.1"
+    "karma": "~0.10",
+    "karma-html2js-preprocessor": "~0.1"
   }
 }
 ```
