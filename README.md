@@ -34,6 +34,10 @@ module.exports = function(config) {
     files: [
       '*.js',
       '*.html'
+    ],
+    
+    plugins: [
+      'karma-html2js-preprocessor'
     ]
   });
 };
