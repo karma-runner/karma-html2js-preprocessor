@@ -1,4 +1,4 @@
-# karma-html2js-preprocessor [![Build Status](https://travis-ci.org/karma-runner/karma-html2js-preprocessor.png?branch=master)](https://travis-ci.org/karma-runner/karma-html2js-preprocessor)
+# karma-html2js-preprocessor [![Build Status](https://travis-ci.org/karma-runner/karma-html2js-preprocessor.svg?branch=master)](https://travis-ci.org/karma-runner/karma-html2js-preprocessor)
 
 > Preprocessor for converting HTML files into JS strings.
 
