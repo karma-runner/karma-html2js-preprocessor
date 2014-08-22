@@ -53,7 +53,7 @@ window.__html__ = window.__html__ || {};
 window.__html__['template.html'] = '<div>something</div>';
 ```
 
-See the [end2end test](https://github.com/karma-runner/karma/tree/master/test/e2e/html2js) for a complete example.
+See the [end2end test](https://github.com/karma-runner/integration-tests/tree/master/html2js) for a complete example.
 
 ----
 
