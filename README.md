@@ -22,7 +22,7 @@ npm install karma-html2js-preprocessor --save-dev
 ```
 
 ## Configuration
-Following code shows the default configuration...
+
 ```js
 // karma.conf.js
 module.exports = function(config) {
@@ -34,7 +34,21 @@ module.exports = function(config) {
     files: [
       '*.js',
       '*.html'
-    ]
+    ],
+
+    html2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'public/',
+
+      // prepend this to the file path
+      prependPrefix: 'served/',
+
+      // or define a custom transform function
+      processPath: function(filePath) {
+        // Drop the file extension
+        return filePath.replace(/\.html$/, '');
+      }
+    }
   });
 };
 ```
