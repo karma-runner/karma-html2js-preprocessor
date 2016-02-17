@@ -13,9 +13,6 @@ describe 'preprocessors html2js', ->
     @mtime = mtime
     @isUrl = false
 
-  removeSpacesFrom = (str) ->
-    str.replace /[\s\n]/g, ''
-
   beforeEach ->
     process = html2js logger, '/base'
 
@@ -27,17 +24,9 @@ describe 'preprocessors html2js', ->
       expect(file.path).to.equal '/base/path/file.html.js'
       done()
 
-
-  it 'should preserve new lines', (done) ->
+  it 'removes NewLine characters', (done) ->
     file = new File '/base/path/file.html'
 
-    process 'first\nsecond', file, (processedContent) ->
-      expect(removeSpacesFrom processedContent).to.contain "'first\\n'+'second'"
-      done()
-
-  it 'should preserve Windows new lines', (done) ->
-    file = new File '/base/path/file.html'
-
-    process 'first\r\nsecond', file, (processedContent) ->
-      expect(processedContent).to.not.contain '\r'
+    process '<a></a>\r\n<b></b>', file, (processedContent) ->
+      expect(processedContent.indexOf('<a></a><b></b>')).not.to.equal(-1)
       done()
