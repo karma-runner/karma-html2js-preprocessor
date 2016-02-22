@@ -41,3 +41,18 @@ describe 'preprocessors html2js', ->
     process 'first\r\nsecond', file, (processedContent) ->
       expect(processedContent).to.not.contain '\r'
       done()
+
+  it 'should preserve backslashes in html', (done) ->
+    file = new File '/base/path/file.html'
+
+    process 'first\\second', file, (processedContent) ->
+      expect(processedContent).to.contain 'first\\second'
+      done()
+
+
+  it 'should escape backslashes in json', (done) ->
+    file = new File '/base/path/file.json'
+
+    process '{"test":"first\\r\\nsecond\'third\'"\r\n"test2":123}', file, (processedContent) ->
+      expect(processedContent).to.contain '{"test":"first\\\\r\\\\nsecond\\\'third\\\'"\\n\' +\n    \'"test2":123}'
+      done()
