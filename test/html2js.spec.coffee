@@ -27,6 +27,21 @@ describe 'preprocessors html2js', ->
       expect(file.path).to.equal '/base/path/file.html.js'
       done()
 
+  it 'should change path to *.js only once', (done) ->
+    # Test case for bug where processing the same file
+    # twice results in the path changing to *.js.js .
+    # Multiple processing can occur when you edit the underlying
+    # .html file multiple times while using karma to proxy the
+    # files for your dev environment.
+    file = new File '/base/path/file.html'
+
+    process '', file, (processedContent) ->
+      expect(file.path).to.equal '/base/path/file.html.js'
+
+    process '', file, (processedContent) ->
+      expect(file.path).to.equal '/base/path/file.html.js'
+      done()
+
 
   it 'should preserve new lines', (done) ->
     file = new File '/base/path/file.html'
