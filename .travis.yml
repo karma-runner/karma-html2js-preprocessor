@@ -3,9 +3,10 @@ node_js:
   - "0.10"
   - "0.12"
   - "4"
-  - "5"
+  - stable
 
 before_script:
+  - npm i -g npm
   - npm install -g grunt-cli
 
 script:
