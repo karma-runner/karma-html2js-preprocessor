@@ -5,8 +5,10 @@ node_js:
   - "4"
   - stable
 
+before_install:
+  - npm install -g npm
+
 before_script:
-  - npm i -g npm
   - npm install -g grunt-cli
 
 script:
