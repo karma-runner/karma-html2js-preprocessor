@@ -1,6 +1,6 @@
 {
   "name": "karma-html2js-preprocessor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Karma plugin. Convert HTML files into JS strings to serve them in a script tag.",
   "main": "lib/index.js",
   "scripts": {
