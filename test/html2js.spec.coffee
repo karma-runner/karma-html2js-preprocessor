@@ -16,9 +16,11 @@ describe 'preprocessors html2js', ->
   removeSpacesFrom = (str) ->
     str.replace /[\s\n]/g, ''
 
-  beforeEach ->
-    process = html2js logger, '/base'
+  createPreprocessor = (config = {}) ->
+    html2js logger, '/base', config
 
+  beforeEach ->
+    process = createPreprocessor()
 
   it 'should change path to *.js', (done) ->
     file = new File '/base/path/file.html'
@@ -26,7 +28,6 @@ describe 'preprocessors html2js', ->
     process '', file, (processedContent) ->
       expect(file.path).to.equal '/base/path/file.html.js'
       done()
-
 
   it 'should preserve new lines', (done) ->
     file = new File '/base/path/file.html'
@@ -41,3 +42,37 @@ describe 'preprocessors html2js', ->
     process 'first\r\nsecond', file, (processedContent) ->
       expect(processedContent).to.not.contain '\r'
       done()
+
+  describe 'options', ->
+    it 'strips the given prefix from the file path', (done) ->
+      file = new File '/base/path/file.html'
+
+      process = createPreprocessor stripPrefix: 'path/'
+
+      process 'first\r\nsecond', file, (processedContent) ->
+        expect(processedContent)
+          .to.contain("__html__['file.html']").and
+          .to.not.contain('path/')
+        done()
+
+    it 'prepends the given prefix from the file path', (done) ->
+      file = new File '/base/path/file.html'
+
+      process = createPreprocessor prependPrefix: 'served/'
+
+      process 'first\r\nsecond', file, (processedContent) ->
+        expect(processedContent)
+          .to.contain("__html__['served/path/file.html']")
+        done()
+
+    it 'invokes custom transform function', (done) ->
+      file = new File '/base/path/file.html'
+      HTML = '<html></html>'
+
+      process = createPreprocessor
+        processPath: (filePath) -> "firstPath/#{filePath}"
+
+      process HTML, file, (processedContent) ->
+        expect(processedContent)
+          .to.contain("__html__['firstPath/path/file.html']")
+        done()
