@@ -23,7 +23,7 @@
     "grunt-simple-mocha": "~0.4",
     "grunt-contrib-jshint": "~1.0",
     "chai": "~3.5",
-    "mocha": "~3.0",
+    "mocha": "~3.1.2",
     "grunt-npm": "~0.0.2",
     "grunt-bump": "~0.8.0",
     "grunt-auto-release": "~0.0.6"
