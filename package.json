@@ -21,7 +21,7 @@
   "devDependencies": {
     "grunt": "~1.0.1",
     "grunt-simple-mocha": "~0.4",
-    "grunt-contrib-jshint": "~1.0",
+    "grunt-contrib-jshint": "~1.1.0",
     "chai": "~3.5",
     "mocha": "~3.0",
     "grunt-npm": "~0.0.2",
