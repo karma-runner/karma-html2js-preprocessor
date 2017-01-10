@@ -51,7 +51,7 @@ describe 'preprocessors html2js', ->
 
       process 'first\r\nsecond', file, (processedContent) ->
         expect(processedContent)
-          .to.contain("__html__['file.html']").and
+          .to.contain("JST['file.html']").and
           .to.not.contain('path/')
         done()
 
@@ -62,7 +62,7 @@ describe 'preprocessors html2js', ->
 
       process 'first\r\nsecond', file, (processedContent) ->
         expect(processedContent)
-          .to.contain("__html__['served/path/file.html']")
+          .to.contain("JST['served/path/file.html']")
         done()
 
     it 'invokes custom transform function', (done) ->
@@ -74,5 +74,5 @@ describe 'preprocessors html2js', ->
 
       process HTML, file, (processedContent) ->
         expect(processedContent)
-          .to.contain("__html__['firstPath/path/file.html']")
+          .to.contain("JST['firstPath/path/file.html']")
         done()
